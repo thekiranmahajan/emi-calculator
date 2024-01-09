@@ -1,15 +1,24 @@
-const loanAmount = document.getElementById("amount");
-const interestRate = document.getElementById("interest");
-const monthsToPay = document.getElementById("month");
-const EMI = document.getElementById("emi");
+const loanInput = document.getElementById("amount");
+const interestInput = document.getElementById("interest");
+const monthInput = document.getElementById("month");
+const resultEMI = document.getElementById("emi");
 
 const emiCalculator = () => {
-  let interest =
-    (loanAmount.value * (interestRate.value * 0.01)) / monthsToPay.value;
-  let monthlyPay = loanAmount.value / monthsToPay.value + interest;
-  EMI.innerText = monthlyPay.toFixed(2);
+  const LoanAmount = parseFloat(loanInput.value);
+  const annualInterest = parseFloat(interestInput.value);
+  const monthsToPay = parseInt(monthInput.value);
+  const monthlyInterest = (annualInterest * 0.01) / 12;
+
+  const EMI = (
+    (LoanAmount *
+      monthlyInterest *
+      Math.pow(1 + monthlyInterest, monthsToPay)) /
+    (Math.pow(1 + monthlyInterest, monthsToPay) - 1)
+  ).toFixed(2);
+  resultEMI.innerText = EMI;
 };
 
-loanAmount.addEventListener("change", emiCalculator);
-interestRate.addEventListener("change", emiCalculator);
-monthsToPay.addEventListener("change", emiCalculator);
+loanInput.addEventListener("change", emiCalculator);
+interestInput.addEventListener("change", emiCalculator);
+monthInput.addEventListener("change", emiCalculator);
+emiCalculator();
