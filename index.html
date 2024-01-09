@@ -7,28 +7,56 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💵</text></svg>"
     />
   </head>
   <body>
     <div class="container">
-      <h1 class="heading">Loan Calculator</h1>
+      <h1 class="heading">EMI Calculator</h1>
+      <math>
+        <mi>EMI</mi> <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>P</mi> <mo>×</mo> <mi>R</mi> <mo>×</mo>
+            <msup>
+              <mfenced>
+                <mrow>
+                  <mo>(</mo> <mn>1</mn> <mo>+</mo> <mi>R</mi> <mo>)</mo>
+                </mrow>
+              </mfenced>
+              <mi>N</mi>
+            </msup>
+          </mrow>
+          <mrow>
+            <msup>
+              <mfenced>
+                <mrow>
+                  <mo>(</mo> <mn>1</mn> <mo>+</mo> <mi>R</mi> <mo>)</mo>
+                </mrow>
+              </mfenced>
+              <mi>N</mi>
+            </msup>
+            <mo>-</mo> <mn>1</mn>
+          </mrow>
+        </mfrac>
+      </math>
       <div class="input-container">
         <label
-          >Loan Amount ₹
-          <input id="amount" type="number" value="1000" />
+          >Principal Loan Amount ₹
+          <input id="amount" type="number" value="25000" />
         </label>
         <label
-          >Interest Rate %
-          <input id="interest" type="number" value="7" />
+          >Annual Interest Rate %
+          <input id="interest" type="number" value="4" />
         </label>
         <label
-          >Months to Pay
-          <input id="month" type="number" value="12" />
+          >No. of Months to Pay
+          <input id="month" type="number" value="24" />
         </label>
       </div>
-      <p>Monthly Payment: <span id="emi"></span></p>
+      <p>Monthly Payment (~EMI) = <span id="emi"></span></p>
     </div>
+
     <script src="index.js"></script>
   </body>
 </html>
