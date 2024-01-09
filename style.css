@@ -21,7 +21,7 @@ body {
 .container {
   position: relative;
   height: 470px;
-  width: 300px;
+  width: 340px;
   display: flex;
   align-items: center;
   padding: 20px;
